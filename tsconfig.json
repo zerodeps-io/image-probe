@@ -1,0 +1,26 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "target": "es2018",
+        "lib": [
+            "es2018"
+        ],
+        "outDir": "dist",
+        "module": "commonjs",
+        "sourceMap": true,
+        "declaration": true,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./source/@types"
+        ]
+    },
+    "include": [
+        "source/**/*.ts"
+    ]
+}

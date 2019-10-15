@@ -1,0 +1,78 @@
+{
+    "name": "@zerodeps/image-probe",
+    "version": "0.0.0",
+    "description": "Get image type and size from the first bytes, without needing to read or download it in full ... And without any NPM additional dependencies!",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "lint": "eslint --ext .ts \"./source/**\"",
+        "test": "jest --passWithNoTests",
+        "clean": "rm -rf ./dist/*",
+        "build": "npm run lint && tsc --project .",
+        "prebuild": "npm run clean",
+        "release:patch": "npm version patch && git push --follow-tags",
+        "release:minor": "npm version minor && git push --follow-tags",
+        "release:major": "npm version major && git push --follow-tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zerodeps-io/image-probe.git"
+    },
+    "keywords": [
+        "typescript",
+        "module",
+        "template"
+    ],
+    "author": "Arturo Arévalo González",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/zerodeps-io/image-probe/issues"
+    },
+    "homepage": "https://github.com/zerodeps-io/image-probe#readme",
+    "jest": {
+        "moduleFileExtensions": [
+            "ts",
+            "js"
+        ],
+        "preset": "ts-jest",
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "tsconfig.eslint.json"
+            }
+        },
+        "testMatch": [
+            "**/test/**/*.+(spec|test).(ts|js)"
+        ],
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "source/**"
+        ],
+        "watchPathIgnorePatterns": [
+            "<rootDir>/node_modules/"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 0,
+                "functions": 1,
+                "lines": 1,
+                "statements": 1
+            }
+        }
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.18",
+        "@types/node": "^12.7.12",
+        "@typescript-eslint/eslint-plugin": "^2.3.3",
+        "@typescript-eslint/parser": "^2.3.3",
+        "eslint": "^6.5.1",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "jest": "^24.9.0",
+        "ts-jest": "^24.1.0",
+        "ts-node": "^8.4.1",
+        "typescript": "^3.6.4"
+    }
+}

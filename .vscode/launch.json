@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Service",
+        "type": "node",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/source/index.ts",
+        "cwd": "${workspaceFolder}",
+        "protocol": "inspector",
+        "outFiles": [ "${workspaceFolder}/dist/**/*.js" ]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest All",
+        "cwd": "${workspaceFolder}",
+        "args": [
+            "--inspect-brk",
+            "${workspaceRoot}/node_modules/.bin/jest",
+            "--runInBand"
+        ],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Current File",
+        "cwd": "${workspaceFolder}/node_modules/.bin/jest",
+        "args": [
+            "--inspect-brk",
+            "${workspaceRoot}/node_modules/.bin/jest",
+            "--runInBand",
+            "${relativeFile}"
+        ],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }
