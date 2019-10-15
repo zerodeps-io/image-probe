@@ -1,6 +1,6 @@
 {
     "name": "@zerodeps/image-probe",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Get image type and size from the first bytes, without needing to read or download it in full ... And without any NPM additional dependencies!",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
