@@ -5,6 +5,7 @@ import { JpegProbe } from "./JpegProbe";
 import { Jpeg2000Probe } from "./Jpeg2000Probe";
 import { GifProbe } from "./GifProbe";
 import { PngProbe } from "./PngProbe";
+import { WebpProbe } from "./WebpProbe";
 
 
 export class ImageProbe {
@@ -38,5 +39,6 @@ export class ImageProbe {
 ImageProbe.register(new PngProbe());
 ImageProbe.register(new JpegProbe());
 ImageProbe.register(new GifProbe());
+ImageProbe.register(new WebpProbe());
 ImageProbe.register(new Jpeg2000Probe());
 ImageProbe.register(new BmpProbe());

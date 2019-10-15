@@ -5,12 +5,45 @@ import { ImageProbe } from "../source";
 
 describe("Testing probe from buffer", () => {
 
+    const webpvp8 = readFileSync("./test/files/webp/testvp8.webp");
+    const webpvp8l = readFileSync("./test/files/webp/testvp8l.webp");
+    const webpvp8x = readFileSync("./test/files/webp/testvp8x.webp");
     const png = readFileSync("./test/files/png/test.png");
     const bmp = readFileSync("./test/files/bmp/blk.bmp");
     const gif = readFileSync("./test/files/gif/test.gif");
     const jpeg = readFileSync("./test/files/jpeg/relax.jpg");
     const jpeg2000 = readFileSync("./test/files/jpeg/relax.jp2");
     const loremIpsum = readFileSync("./test/files/text/loremipsum.txt");
+
+    test("it detects a valid WEBP file with VP8", () => {
+        expect(ImageProbe.fromBuffer(webpvp8))
+            .toEqual({
+                type: "webp",
+                mimeType: "image/webp",
+                width: 1600,
+                height: 900
+            });
+    });
+
+    test("it detects a valid WEBP file with VP8L", () => {
+        expect(ImageProbe.fromBuffer(webpvp8l))
+            .toEqual({
+                type: "webp",
+                mimeType: "image/webp",
+                width: 1200,
+                height: 900
+            });
+    });
+
+    test("it detects a valid WEBP file with VP8X", () => {
+        expect(ImageProbe.fromBuffer(webpvp8x))
+            .toEqual({
+                type: "webp",
+                mimeType: "image/webp",
+                width: 1440,
+                height: 900
+            });
+    });
 
     test("it detects a valid PNG file", () => {
         expect(ImageProbe.fromBuffer(png))
