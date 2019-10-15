@@ -14,14 +14,18 @@ import { ImageProbe } from "@zerodeps/image-probe";
 const buffer = readFileSync("image.jpg");
 
 const results = ImageProbe.fromBuffer(buffer);
-/*
-{
-    type: "jpeg",
-    mimeType: "image/jpeg",
-    width: 512,
-    height: 256
+if (results === undefined) {
+    // NOT AN IMAGE!!!
+} else {
+    /* results contains:
+    {
+        type: "jpeg",
+        mimeType: "image/jpeg",
+        width: 512,
+        height: 256
+    }
+    */
 }
-*/
 ```
 
 ## Supported image type formats
