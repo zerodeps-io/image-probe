@@ -13,6 +13,7 @@ describe("Testing probe from buffer", () => {
     const gif = readFileSync("./test/files/gif/test.gif");
     const jpeg = readFileSync("./test/files/jpeg/relax.jpg");
     const jpeg2000 = readFileSync("./test/files/jpeg/relax.jp2");
+    const svg = readFileSync("./test/files/svg/viewbox.svg");
     const loremIpsum = readFileSync("./test/files/text/loremipsum.txt");
 
     test("it detects a valid WEBP file with VP8", () => {
@@ -92,6 +93,16 @@ describe("Testing probe from buffer", () => {
                 mimeType: "image/bmp",
                 width: 200,
                 height: 144
+            });
+    });
+
+    test("it detects a valid SVG file", () => {
+        expect(ImageProbe.fromBuffer(svg))
+            .toEqual({
+                type: "svg",
+                mimeType: "image/svg",
+                width: 123,
+                height: 456
             });
     });
 
